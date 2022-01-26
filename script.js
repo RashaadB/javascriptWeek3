@@ -37,24 +37,49 @@ console.log(person3.name);
 
 
  //VERYHARD
-class Person {
-  name;
-  job;
-  age;
-
+ class Person {
   constructor(name, job, age) {
     this.name = name;
-    this.job =job;
-    this.age =age;
+    this.job = job;
+    this.age = age;
   }
-
-  exercise(){
-    console.log( `Running is fun`)
+  exercise() {
+    console.log('Running is lit');
   }
-  fetchJob(){
-    console.log( `${this.name }is a ${this.job}`)
+  fetchJob() {
+    console.log(`${this.name} is a ${this.job}`)
   }
-  
-
 }
-const worker = new Person("Rashaad","software",26)
+class Programmer extends Person {
+  constructor(name, job, age, languages) {
+    super(name, job, age);
+    this.languages = [languages];
+    this.busy = true;
+  }
+  completeTask() {
+    return this.busy = false;
+  }
+  acceptNewTask() {
+    return this.busy = true;
+  }
+  offerNewTask() {
+    if (this.busy = true) {
+      console.log(`${this.name} can't accept any tasks right now.`)
+    } else {
+      console.log(`${this.name} would love to take on a new role`)
+    }
+  }
+  learnLang () {
+    this.languages.push('JavaScript')
+    return `${this.name} has learned JavaScript`
+  }
+  listLang() {
+    this.learnLang()
+    return this.languages
+  }
+};
+const thomas = new Programmer('Rashaad' , 'engineer', 23, 'html');
+console.log(thomas.listLang());
+
+
+
